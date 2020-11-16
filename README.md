@@ -1,10 +1,10 @@
 # README
 
-## user
+## users
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
 | email              | string              | null: false             |
-| password           | string              | null: false             |
+| encrypted_password | string              | null: false             |
 | nickname           | string              | null: false             |
 | last_name          | string              | null: false             |
 | first_name         | string              | null: false             |
@@ -13,38 +13,43 @@
 | birthday           | date                | null: false             |
 
 ### Association
-has_many :item
-has_many :item, through :item_log
-has_many :delivery
+has_many :items
+has_many :item_logs
+has_many :deliveries
 
 ## items
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-|user_id             |references           | null: false, foreign_key: true |
-|category_id         |references           | null: false, foreign_key: true |
-|brand_id            |references           | null: false, foreign_key: true |
-|prefecture_id       |references           | null: false, foreign_key: true |
-|condition_id        |references           | null: false, foreign_key: true |
-|fee_id              |references           | null: false, foreign_key: true |
+|user                |references           | null: false, foreign_key: true |
+|category            |integer              | null: false, foreign_key: true |
+|brand               |integer              | null: false, foreign_key: true |
+|prefecture          |integer              | null: false, foreign_key: true |
+|condition           |integer              | null: false, foreign_key: true |
+|fee                 |integer              | null: false, foreign_key: true |
 |price               |integer              | null: false                    |
 |name                |string               | null: false                    |
-|image               |                     | (null:false)                   |
 |text                |text                 | null: false                    |
 
 ### Association
-belongs_to :user, :category, :brand, :prefecture, :condition, :fee
-has_many :user  through :item_log
+belongs_to :user 
+belongs_to :category
+belongs_to :brand
+belongs_to :prefecture
+belongs_to :condition
+belongs_to :fee
+has_many :users
 has_one_attached :image
 
-## deliverys
+## deliveries
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-|prefecture_id       | references          | null: false, foreign_key: true |
-|user_id             | references          | null: false, foreign_key: true |
-|item_log_id         | references          | null: false, foreign_key: true |
+|item_log            | references          | null: false, foreign_key: true |
+|prefecture          | integer             | null: false, foreign_key: true |
+|post_number         | string              | null: false                    |
 |address_1           | string              | null: false                    |
 |address_2           | string              | null: false                    |
+|phone_number        | integer             | null: false                    |
 
 ### Association
 belongs_to :user, :item_log, prefecture
@@ -54,11 +59,11 @@ belongs_to :user, :item_log, prefecture
 ## item_logs
 | Column             | Type                | Options                                      |
 |--------------------|---------------------|----------------------------------------------|
-|item_user_id        |references           | null: false, foreign_key: true               |
-|item_id             |references           | null: false, foreign_key: true, unique: true |
-|delivery_id         |references           | null: false, foreign_key: true               |
-|user_id             |references           | null: false, foreign_key: true               |
+|item                |references           | null: false, foreign_key: true, unique: true |
+|delivery            |references           | null: false, foreign_key: true               |
+|user                |references           | null: false, foreign_key: true               |
 
 ### Association
-belongs_to :item, :user
+belongs_to :item
+belongs_to :user
 has_one :delivery
