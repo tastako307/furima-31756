@@ -15,7 +15,6 @@
 ### Association
 has_many :items
 has_many :item_logs
-has_many :deliveries
 
 ## items
 | Column             | Type                | Options                        |
@@ -37,7 +36,6 @@ belongs_to :brand
 belongs_to :prefecture
 belongs_to :condition
 belongs_to :fee
-has_many :users
 has_one :item_log
 has_one_attached :image
 
