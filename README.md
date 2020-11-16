@@ -21,11 +21,11 @@ has_many :deliveries
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
 |user                |references           | null: false, foreign_key: true |
-|category            |integer              | null: false, foreign_key: true |
-|brand               |integer              | null: false, foreign_key: true |
-|prefecture          |integer              | null: false, foreign_key: true |
-|condition           |integer              | null: false, foreign_key: true |
-|fee                 |integer              | null: false, foreign_key: true |
+|category_id         |integer              | null: false                    |
+|brand_id            |integer              | null: false                    |
+|prefecture_id       |integer              | null: false                    |
+|condition_id        |integer              | null: false                    |
+|fee_id              |integer              | null: false                    |
 |price               |integer              | null: false                    |
 |name                |string               | null: false                    |
 |text                |text                 | null: false                    |
@@ -38,6 +38,7 @@ belongs_to :prefecture
 belongs_to :condition
 belongs_to :fee
 has_many :users
+has_one :item_log
 has_one_attached :image
 
 ## deliveries
@@ -45,11 +46,12 @@ has_one_attached :image
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
 |item_log            | references          | null: false, foreign_key: true |
-|prefecture          | integer             | null: false, foreign_key: true |
+|prefecture_id       | integer             | null: false                    |
 |post_number         | string              | null: false                    |
 |address_1           | string              | null: false                    |
 |address_2           | string              | null: false                    |
-|phone_number        | integer             | null: false                    |
+|building            | string              | default: ""                    |
+|phone_number        | string              | null: false                    |
 
 ### Association
 belongs_to :item_log 
@@ -61,7 +63,6 @@ belongs_to :prefecture
 | Column             | Type                | Options                                      |
 |--------------------|---------------------|----------------------------------------------|
 |item                |references           | null: false, foreign_key: true, unique: true |
-|delivery            |references           | null: false, foreign_key: true               |
 |user                |references           | null: false, foreign_key: true               |
 
 ### Association
