@@ -52,7 +52,8 @@ has_one_attached :image
 |phone_number        | integer             | null: false                    |
 
 ### Association
-belongs_to :user, :item_log, prefecture
+belongs_to :item_log 
+belongs_to :prefecture
 
 
 
