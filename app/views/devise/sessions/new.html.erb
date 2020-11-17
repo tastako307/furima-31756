@@ -1,5 +1,5 @@
 <%= render "shared/second-header" %>
-<%= render "shared/error_messages" %>
+<%= render partial: "shared/error_messages", locals: {model: @user} %>
 <%= form_with model: @user, url: new_user_session_path,class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
