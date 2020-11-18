@@ -1,5 +1,6 @@
 # README
 
+
 ## users
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
@@ -11,6 +12,7 @@
 | last_name_kana     | string              | null: false             |
 | first_name_kana    | string              | null: false             |
 | birthday           | date                | null: false             |
+
 
 ### Association
 has_many :items
@@ -67,3 +69,4 @@ belongs_to :prefecture
 belongs_to :item
 belongs_to :user
 has_one :delivery
+
