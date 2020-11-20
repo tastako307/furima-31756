@@ -23,7 +23,7 @@ has_many :item_logs
 |--------------------|---------------------|--------------------------------|
 |user                |references           | null: false, foreign_key: true |
 |category_id         |integer              | null: false                    |
-|brand_id            |integer              | null: false                    |
+|deadline_id         |integer              | null: false                    |
 |prefecture_id       |integer              | null: false                    |
 |condition_id        |integer              | null: false                    |
 |fee_id              |integer              | null: false                    |
