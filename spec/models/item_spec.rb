@@ -1,13 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-
   before do
     @item = FactoryBot.build(:item)
   end
 
   describe '商品出品機能' do
-
     it '正常に出品できる' do
       expect(@item).to be_valid
     end
@@ -15,7 +13,7 @@ RSpec.describe Item, type: :model do
     it 'Userが空では登録出来ない' do
       @item.user = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include('User must exist') 
+      expect(@item.errors.full_messages).to include('User must exist')
     end
 
     it 'category_idが空では登録できない' do
@@ -49,13 +47,13 @@ RSpec.describe Item, type: :model do
     end
 
     it 'priceが空では登録出来ない' do
-      @item.price = ""
+      @item.price = ''
       @item.valid?
       expect(@item.errors.full_messages).to include('Price 価格の入力は、300〜9999999の範囲内の整数かつ、半角英数字で行う必要があります')
     end
 
     it 'priceが大きすぎては登録出来ない' do
-      @item.price = 10000000
+      @item.price = 10_000_000
       @item.valid?
       expect(@item.errors.full_messages).to include('Price 価格の入力は、300〜9999999の範囲内の整数かつ、半角英数字で行う必要があります')
     end
@@ -95,6 +93,5 @@ RSpec.describe Item, type: :model do
       @item.valid?
       expect(@item.errors.full_messages).to include('Text 説明文に入力できるのは1000文字までです')
     end
-
   end
 end

@@ -1,5 +1,3 @@
-class Brand < ActiveHash::Base 
-  self.data = [
-
-  ]
+class Brand < ActiveHash::Base
+  self.data = []
 end
