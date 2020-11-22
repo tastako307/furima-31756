@@ -114,7 +114,7 @@
     <% if @items.presence %>
       <% @items.each do |item| %>
         <li class='list'>
-          <%= link_to "#" do %>
+          <%= link_to item_path(item.id) do %>
             <div class='item-img-content'>
               <%= image_tag item.image, class: "item-img" %>
               <%# unless item.item_log.presence これはitem_logモデルの作成後コメントアウトを外す%>
