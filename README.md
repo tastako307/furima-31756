@@ -59,7 +59,7 @@ belongs_to :prefecture
 
 
 
-## item_logs
+## orders
 | Column             | Type                | Options                                      |
 |--------------------|---------------------|----------------------------------------------|
 |item                |references           | null: false, foreign_key: true, unique: true |
