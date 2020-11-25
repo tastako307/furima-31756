@@ -45,7 +45,7 @@ has_one_attached :image
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-|item_log            | references          | null: false, foreign_key: true |
+|order               | references          | null: false, foreign_key: true |
 |prefecture_id       | integer             | null: false                    |
 |post_number         | string              | null: false                    |
 |address_1           | string              | null: false                    |
