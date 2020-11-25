@@ -16,7 +16,7 @@
 
 ### Association
 has_many :items
-has_many :item_logs
+has_many :orders
 
 ## items
 | Column             | Type                | Options                        |
@@ -38,7 +38,7 @@ belongs_to :brand
 belongs_to :prefecture
 belongs_to :condition
 belongs_to :fee
-has_one :item_log
+has_one :order
 has_one_attached :image
 
 ## deliveries
@@ -54,7 +54,7 @@ has_one_attached :image
 |phone_number        | string              | null: false                    |
 
 ### Association
-belongs_to :item_log 
+belongs_to :order 
 belongs_to :prefecture
 
 
