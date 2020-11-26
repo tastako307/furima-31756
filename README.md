@@ -60,10 +60,10 @@ belongs_to :prefecture
 
 
 ## orders
-| Column             | Type                | Options                                      |
-|--------------------|---------------------|----------------------------------------------|
-|item                |references           | null: false, foreign_key: true, unique: true |
-|user                |references           | null: false, foreign_key: true               |
+| Column             | Type                | Options                                          |
+|--------------------|---------------------|--------------------------------------------------|
+|item                |references           | null: false, foreign_key: true, uniqueness: true |
+|user                |references           | null: false, foreign_key: true                   |
 
 
 ### Association
