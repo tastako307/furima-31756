@@ -7,11 +7,11 @@
     </h2>
     <div class='item-img-content'>
       <%= image_tag @item.image ,class:"item-box-img" %>
-      <%# unless item.item_log.presence これはitem_logモデルの作成後コメントアウトを外す%>
+      <% if @item.order.presence %>
       <div class='sold-out'>
         <span>Sold Out!!</span>
       </div>
-      <%# end %>
+      <% end %>
     </div>
     <div class="item-price-box">
       <span class="item-price">
@@ -22,11 +22,11 @@
       </span>
     </div>
     <% if user_signed_in? %>
-      <% if current_user.id == @item.user.id #&& elsif unless item.item_log.presence これはitem_logモデルの作成後コメントアウトを外す %>
+      <% if current_user.id == @item.user.id && @item.order.presence == false %>
         <%= link_to '商品の編集', edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
         <p class='or-text'>or</p>
         <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
-      <% else  #&& unless item.item_log.presence これはitem_logモデルの作成後コメントアウトを外す %>
+      <% elsif  !@item.order.presence %>
         <%= link_to '購入画面に進む', "#{@item.id}/orders" , method: :get , class: "item-red-btn" %>
       <% end %>
     <% end %>

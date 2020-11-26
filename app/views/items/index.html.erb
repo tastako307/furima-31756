@@ -117,11 +117,11 @@
           <%= link_to item_path(item.id) do %>
             <div class='item-img-content'>
               <%= image_tag item.image, class: "item-img" %>
-              <%# unless item.item_log.presence これはitem_logモデルの作成後コメントアウトを外す%>
+              <% if item.order.presence %>
                <div class='sold-out'>
                 <span>Sold Out!!</span>
                </div>
-              <%# end %> 
+              <% end %> 
             </div>
             <div class='item-info'>
               <h3 class='item-name'>
