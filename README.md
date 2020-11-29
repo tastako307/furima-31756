@@ -16,7 +16,7 @@
 
 ### Association
 has_many :items
-has_many :item_logs
+has_many :orders
 
 ## items
 | Column             | Type                | Options                        |
@@ -38,14 +38,14 @@ belongs_to :brand
 belongs_to :prefecture
 belongs_to :condition
 belongs_to :fee
-has_one :item_log
+has_one :order
 has_one_attached :image
 
 ## deliveries
 
 | Column             | Type                | Options                        |
 |--------------------|---------------------|--------------------------------|
-|item_log            | references          | null: false, foreign_key: true |
+|order               | references          | null: false, foreign_key: true |
 |prefecture_id       | integer             | null: false                    |
 |post_number         | string              | null: false                    |
 |address_1           | string              | null: false                    |
@@ -54,16 +54,16 @@ has_one_attached :image
 |phone_number        | string              | null: false                    |
 
 ### Association
-belongs_to :item_log 
+belongs_to :order 
 belongs_to :prefecture
 
 
 
 ## orders
-| Column             | Type                | Options                                      |
-|--------------------|---------------------|----------------------------------------------|
-|item                |references           | null: false, foreign_key: true, unique: true |
-|user                |references           | null: false, foreign_key: true               |
+| Column             | Type                | Options                                          |
+|--------------------|---------------------|--------------------------------------------------|
+|item                |references           | null: false, foreign_key: true, uniqueness: true |
+|user                |references           | null: false, foreign_key: true                   |
 
 
 ### Association
